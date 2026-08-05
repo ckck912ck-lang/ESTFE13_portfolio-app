@@ -21,6 +21,8 @@ export default function Insert() {
     thumbnail: "",
   });
 
+  const [thumbnail, setThumbnail] = useState(null);
+
   async function insertData(e) {
     e.preventDefault();
     const { error } = await supabase.from("portfolio").insert(formData);
@@ -38,6 +40,10 @@ export default function Insert() {
       ...formData,
       [name]: value,
     });
+  };
+
+  const handleFileChange = e => {
+    setThumbnail(e.target.files[0]);
   };
 
   return (
@@ -117,7 +123,13 @@ export default function Insert() {
           </p>
           <p className="field">
             <label htmlFor="thumbnail">썸네일:</label>
-            <input type="file" id="thumbnail" name="thumbnail" accept="image/*" />
+            <input
+              type="file"
+              id="thumbnail"
+              name="thumbnail"
+              accept="image/*"
+              onChange={handleFileChange}
+            />
           </p>
           <p className="submit">
             <input type="submit" className="primary-btn" value="등록" />
