@@ -31,7 +31,6 @@ export default function Insert() {
       router.push("/");
     }
   }
-
   const handleChange = e => {
     const { name, value } = e.target;
 

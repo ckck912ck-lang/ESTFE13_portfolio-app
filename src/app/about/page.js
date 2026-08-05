@@ -7,7 +7,7 @@ export default function About() {
         I&apos;m a big fan of trance music.
       </p>
       <p className="narrow-p">
-        Wanna get in touch? Do a quick scroll to the bottom of the page. It&apos;s all there :
+        Wanna get in touch? Do a quick scroll to the bottom of the page. It&apos;s all there :)
       </p>
       <hr className="double" />
       <h4 className="heading4 available">I&apos;m currently available for freelance projects.</h4>
