@@ -6,7 +6,26 @@ export default async function Portfolio({ params }) {
 
   const { data, error } = await supabase.from("portfolio").select().eq("id", id).single();
 
-  console.log(data);
+  //이전글 id, title 조회
+  const { data: prev } = await supabase
+    .from("portfolio")
+    .select("id,title")
+    .lt("id", id)
+    .order("id", { ascending: false })
+    .limit(1)
+    .maybeSingle();
+
+  //다음글 id, title 조회
+  const { data: next } = await supabase
+    .from("portfolio")
+    .select("id,title")
+    .gt("id", id)
+    .order("id", { ascending: true })
+    .limit(1)
+    .maybeSingle();
+
+  console.log("prev" + prev);
+  console.log("next" + next);
 
   return (
     <div className="portoflio-single">
@@ -34,12 +53,16 @@ export default async function Portfolio({ params }) {
               <small>- {data?.reviewer ?? ""} -</small>
             </blockquote>
             <p className="nav">
-              <a href="" className="secondary-btn">
-                &larr; Previous Project
-              </a>
-              <a href="" className="secondary-btn">
-                Next Project &rarr;
-              </a>
+              {prev && (
+                <a href={`/portfolio/${prev.id}`} className="secondary-btn">
+                  &larr; {prev.title}
+                </a>
+              )}
+              {next && (
+                <a href={`/portfolio/${next.id}`} className="secondary-btn">
+                  {next.title} &rarr;
+                </a>
+              )}
             </p>
           </div>
         </div>
