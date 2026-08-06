@@ -21,7 +21,7 @@ export default function Register() {
   //회원가입 진행
   const handleSignUp = async e => {
     e.preventDefault();
-    const { data, error } = await supabase.auth.SignUp(authForm);
+    const { data, error } = await supabase.auth.signUp(authForm);
     if (error) {
       alert("회원가입 실패", error.message);
     } else {
