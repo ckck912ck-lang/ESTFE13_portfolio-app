@@ -7,18 +7,14 @@ export default function Insert() {
   const supabase = createClient();
   const router = useRouter();
 
-  const [formData, setFormData] = useState({
+  const INITIAL_PORTFOLIO = {
     title: "",
     content: "",
     url: "",
     review: "",
     reviewer: "",
-    rep1_img: "",
-    rep1_desc: "",
-    rep2_img: "",
-    rep2_desc: "",
-    thumbnail: "",
-  });
+  };
+  const [formData, setFormData] = useState(INITIAL_PORTFOLIO);
 
   const [thumbnail, setThumbnail] = useState(null);
   const [user, setUser] = useState(null);
