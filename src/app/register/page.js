@@ -1,5 +1,4 @@
 "use client";
-
 import { createClient } from "@/utils/supabase/client";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
@@ -29,7 +28,6 @@ export default function Register() {
       router.push("/");
     }
   };
-
   return (
     <div className="about_content shadow">
       <h2>회원가입</h2>

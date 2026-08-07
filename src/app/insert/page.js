@@ -1,5 +1,4 @@
 "use client";
-
 import { createClient } from "@/utils/supabase/client";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
@@ -60,7 +59,6 @@ export default function Insert() {
       router.refresh();
     }
   }
-
   const handleChange = e => {
     const { name, value } = e.target;
 
@@ -94,7 +92,6 @@ export default function Insert() {
       return filePath;
     }
   }
-
   //로그인 진행
   const handleLogin = async e => {
     e.preventDefault();
@@ -144,7 +141,6 @@ export default function Insert() {
       </div>
     );
   }
-
   return (
     <div className="about_content shadow">
       <h2 className="mb-3">데이터 입력</h2>

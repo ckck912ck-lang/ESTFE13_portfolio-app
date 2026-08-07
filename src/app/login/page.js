@@ -1,5 +1,4 @@
 "use client";
-
 import { createClient } from "@/utils/supabase/client";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
@@ -30,7 +29,6 @@ export default function Login() {
       router.refresh();
     }
   };
-
   const signInWithGoogle = async () => {
     const { data, error } = await supabase.auth.signInWithOAuth({
       provider: "google",
@@ -42,7 +40,6 @@ export default function Login() {
       console.error("로그인 실패", error.message);
     }
   };
-
   const signInWithKakao = async () => {
     const { data, error } = await supabase.auth.signInWithOAuth({
       provider: "kakao",
@@ -54,7 +51,6 @@ export default function Login() {
       console.error("로그인 실패", error.message);
     }
   };
-
   return (
     <div className="about_content shadow">
       <h2>로그인</h2>

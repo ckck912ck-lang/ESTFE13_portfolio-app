@@ -9,7 +9,6 @@ export default function Home({ data }) {
     const { data: publicUrlData } = supabase.storage.from("portfolio").getPublicUrl(path);
     return publicUrlData.publicUrl;
   };
-
   return (
     <div className="latest_portfolio">
       <div className="row intro">
